@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Galeria</title>
+	<style>
+		html {
+			background-color: black;
+		}
+
+		.image {
+			background: url(https://www.slodkolandia.cba.pl/img/55-.jpg) no-repeat;
+
+		}
+
+
+		.box {
+			width: 800px;
+			height: 50vh;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			/*			margin: 0 auto;*/
+			transform: translate(-50%, -50%);
+			-webkit-transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			-o-transform: translate(-50%, -50%);
+			-moz-transform: translate(-50%, -50%);
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+		}
+
+		.box:nth-child(2) {
+			left: 65%;
+		}
+
+		@media (max-width: 1024px) {
+			.box: nth-child(2);
+			.box-display: none;
+			.box {
+				left: 50%;
+			}
+		}
+
+		.box a:before {
+			content: attr(title);
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			-webkit-transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			-o-transform: translate(-50%, -50%);
+			-moz-transform: translate(-50%, -50%);
+			font-size: 25px;
+			z-index: 5;
+			pointer-events: none;
+			color: #fff;
+			font-weight: 900;
+		}
+
+		.box .image {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-position: 50% 50%;
+			transition: 500ms ease;
+			-webkit-transition: 500ms ease;
+			-ms-transition: 500ms ease;
+			-moz-transition: 500ms ease;
+			-o-transition: 500ms ease;
+			background-size: auto 100%;
+		}
+
+		.box span {
+			width: 16.66666666666667%;
+			height: 16.66666666666667%;
+			float: left;
+			position: relative;
+			z-index: 2;
+		}
+
+		.box span:hover~.image {
+			background-size: auto 200%;
+		}
+
+		.box span.c1:hover~.image {
+			background-position: 16.6666666667% 0%;
+		}
+
+		.box span.c2:hover~.image {
+			background-position: 33.3333333333% 0%;
+		}
+
+		.box span.c3:hover~.image {
+			background-position: 50% 0%;
+		}
+
+		.box span.c4:hover~.image {
+			background-position: 66.6666666667% 0%;
+		}
+
+		.box span.c5:hover~.image {
+			background-position: 83.3333333333% 0%;
+		}
+
+		.box span.c6:hover~.image {
+			background-position: 100% 0%;
+		}
+
+		.box span.c7:hover~.image {
+			background-position: 16.6666666667% 20%;
+		}
+
+		.box span.c8:hover~.image {
+			background-position: 33.3333333333% 20%;
+		}
+
+		.box span.c9:hover~.image {
+			background-position: 50% 20%;
+		}
+
+		.box span.c10:hover~.image {
+			background-position: 66.6666666667% 20%;
+		}
+
+		.box span.c11:hover~.image {
+			background-position: 83.3333333333% 20%;
+		}
+
+		.box span.c12:hover~.image {
+			background-position: 100% 20%;
+		}
+
+		.box span.c13:hover~.image {
+			background-position: 16.6666666667% 40%;
+		}
+
+		.box span.c14:hover~.image {
+			background-position: 33.3333333333% 40%;
+		}
+
+		.box span.c15:hover~.image {
+			background-position: 50% 40%;
+		}
+
+		.box span.c16:hover~.image {
+			background-position: 66.6666666667% 40%;
+		}
+
+		.box span.c17:hover~.image {
+			background-position: 83.3333333333% 40%;
+		}
+
+		.box span.c18:hover~.image {
+			background-position: 100% 40%;
+		}
+
+		.box span.c19:hover~.image {
+			background-position: 16.6666666667% 60%;
+		}
+
+		.box span.c20:hover~.image {
+			background-position: 33.3333333333% 60%;
+		}
+
+		.box span.c21:hover~.image {
+			background-position: 50% 60%;
+		}
+
+		.box span.c22:hover~.image {
+			background-position: 66.6666666667% 60%;
+		}
+
+		.box span.c23:hover~.image {
+			background-position: 83.3333333333% 60%;
+		}
+
+		.box span.c24:hover~.image {
+			background-position: 100% 60%;
+		}
+
+		.box span.c25:hover~.image {
+			background-position: 16.6666666667% 80%;
+		}
+
+		.box span.c26:hover~.image {
+			background-position: 33.3333333333% 80%;
+		}
+
+		.box span.c27:hover~.image {
+			background-position: 50% 80%;
+		}
+
+		.box span.c28:hover~.image {
+			background-position: 66.6666666667% 80%;
+		}
+
+		.box span.c29:hover~.image {
+			background-position: 83.3333333333% 80%;
+		}
+
+		.box span.c30:hover~.image {
+			background-position: 100% 80%;
+		}
+
+		.box span.c31:hover~.image {
+			background-position: 16.6666666667% 100%;
+		}
+
+		.box span.c32:hover~.image {
+			background-position: 33.3333333333% 100%;
+		}
+
+		.box span.c33:hover~.image {
+			background-position: 50% 100%;
+		}
+
+		.box span.c34:hover~.image {
+			background-position: 66.6666666667% 100%;
+		}
+
+		.box span.c35:hover~.image {
+			background-position: 83.3333333333% 100%;
+		}
+
+		.box span.c36:hover~.image {
+			background-position: 100% 100%;
+		}
+
+		body {
+			background: #f9f9f9;
+			font-family: 'Roboto', sans-serif;
+		}
+
+		*,
+		*:after,
+		*::before {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+			text-decoration: none;
+			list-style-type: none;
+			outline: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box">
+		<a href="#" title="Hover me">
+    <span class="c1"></span>
+    <span class="c2"></span>
+    <span class="c3"></span>
+    <span class="c4"></span>
+    <span class="c5"></span>
+    <span class="c6"></span>
+    <span class="c7"></span>
+    <span class="c8"></span>
+    <span class="c9"></span>
+    <span class="c10"></span>
+    <span class="c11"></span>
+    <span class="c12"></span>
+    <span class="c13"></span>
+    <span class="c14"></span>
+    <span class="c15"></span>
+    <span class="c16"></span>
+    <span class="c17"></span>
+    <span class="c18"></span>
+    <span class="c19"></span>
+    <span class="c20"></span>
+    <span class="c21"></span>
+    <span class="c22"></span>
+    <span class="c23"></span>
+    <span class="c24"></span>
+    <span class="c25"></span>
+    <span class="c26"></span>
+    <span class="c27"></span>
+    <span class="c28"></span>
+    <span class="c29"></span>
+    <span class="c30"></span>
+    <span class="c31"></span>
+    <span class="c32"></span>
+    <span class="c33"></span>
+    <span class="c34"></span>
+    <span class="c35"></span>
+    <span class="c36"></span>
+    <div class="image"></div>
+  </a>
+	</div>
+
+</body>
+
+</html>
