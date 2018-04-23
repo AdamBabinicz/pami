@@ -1,0 +1,66 @@
+<html>
+    <head>
+    <style>
+        * { margin: 0; padding: 0; }
+        body {
+            background-color: black;
+        }
+.tiles {
+display: flex;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+
+.tile {
+position: relative;
+    
+width: 100%;
+height: 100%;
+overflow: hidden;
+}
+
+.photo {
+    
+position: absolute;
+top: 0;
+left: 0; 
+width: 100%;
+height: 100%;
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+transition: transform .8s ease-out;
+}
+        </style>
+    </head>
+    <body>
+    <div class="tiles">
+<div class="tile" data-scale="2.4" data-image="DSC08580.JPG"></div>
+ <div class="tile" data-scale="2.4" data-image="logo.jpg"></div>       
+</div>
+        
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>       
+        <script>
+        // js
+$('.tile')
+.on('mouseover', function(){
+$(this).children('.photo').css({'transform': 'scale('+ $(this).attr('data-scale') +')'});
+})
+.on('mouseout', function(){
+$(this).children('.photo').css({'transform': 'scale(1)'});
+})
+.on('mousemove', function(e){
+$(this).children('.photo').css({'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +'%'});
+})
+.each(function(){
+$(this)
+.append('<div class="photo"></div>')
+.children('.photo').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
+})
+
+        </script>
+ </body>   
+ </html>   
