@@ -1,45 +1,47 @@
 <html>
-    <head>
-    <style>
-        * { margin: 0; padding: 0; }
-        body {
-            background-color: black;
-        }
-.tiles {
 
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-}
+<head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
 
-.tile {
-position: relative;
-    
-width: 100%;
-height: 100%;
-overflow: hidden;
-}
-
-.photo {
-    
-position: absolute;
-top: 0;
-left: 0; 
-width: 100%;
-height: 100%;
-background-repeat: no-repeat;
-background-position: center;
-background-size: cover;
-transition: transform .8s ease-out;
-}
-        /* Start Slider */
+		body {
+			background-color: rgba(105, 105, 105, 0.79);
+		}
 
 		.tiles {
-			position: relative;
-            overflow-x: hidden;
+			overflow-x: hidden;
+			position: absolute;
+			top: 5vh;
+			left: 0;
+			width: 100%;
+			height: 100%;
 		}
+
+		.tile {
+			position: relative;
+			margin: 0 auto;
+			width: 800px;
+			height: 600px;
+			overflow: hidden;
+		}
+
+		.photo {
+
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			transition: transform .8s ease-out;
+		}
+
+		/* Start Slider */
 
 		.prev,
 		.next {
@@ -79,12 +81,7 @@ transition: transform .8s ease-out;
 			text-shadow: 0 0 1px #FFF;
 		}
 
-		tile {
-			display: block;
-			width: 100%;
-			max-width: 100%;
-            height: 100px;
-		}
+
 
 		.mySlides {
 			position: relative;
@@ -212,55 +209,65 @@ transition: transform .8s ease-out;
 			}
 		}
 
-        </style>
-    </head>
-    <body>
-    <div class="tiles">
-        
-<div class="tile mySlides" data-scale="2.4" data-image="DSC08580.JPG"></div>
- <div class="tile mySlides" data-scale="2.4" data-image="DSC00153.JPG"></div>
-  <div class="tile mySlides" data-scale="2.4" data-image="DSC08420.JPG"></div>
- <div class="tile mySlides" data-scale="2.4" data-image="DSC08583.JPG"></div>
-  <div class="tile mySlides" data-scale="2.4" data-image="zdjecie218.JPG"></div>
- <div class="tile mySlides" data-scale="2.4" data-image="zdjecie0249.JPG"></div>      
-        <a class="prev" onclick="plusSlides(-1)">&#171;</a>
-		<a class="next" onclick="plusSlides(1)">&#187;</a>
-        <div>
-				<span class="dot" onclick="currentSlide(1)"></span>
-				<span class="dot" onclick="currentSlide(2)"></span>
-				<span class="dot" onclick="currentSlide(3)"></span>
-			</div>
-</div>
-    
- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>       
-        <script>
-        // js
-$('.tile')
-.on('mouseover', function(){
-$(this).children('.photo').css({'transform': 'scale('+ $(this).attr('data-scale') +')'});
-})
-.on('mouseout', function(){
-$(this).children('.photo').css({'transform': 'scale(1)'});
-})
-.on('mousemove', function(e){
-$(this).children('.photo').css({'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +'%'});
-})
-.each(function(){
-$(this)
-.append('<div class="photo"></div>')
-.children('.photo').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
-})
+	</style>
+</head>
 
-        </script>
- <script src="https://cdn.jsdelivr.net/scrollreveal.js/3.1.4/scrollreveal.min.js"></script>
+<body>
+	<div class="tiles">
+
+		<div class="tile mySlides" data-scale="2.4" data-image="DSC08580.JPG"></div>
+		<div class="tile mySlides" data-scale="2.4" data-image="DSC00153.JPG"></div>
+		<div class="tile mySlides" data-scale="2.4" data-image="DSC08420.JPG"></div>
+		<div class="tile mySlides" data-scale="2.4" data-image="DSC08583.JPG"></div>
+		<div class="tile mySlides" data-scale="2.4" data-image="zdjecie218.JPG"></div>
+		<div class="tile mySlides" data-scale="2.4" data-image="zdjecie0249.JPG"></div>
+		<a class="prev" onclick="plusSlides(-1)">&#171;</a>
+		<a class="next" onclick="plusSlides(1)">&#187;</a>
+		<div>
+			<span class="dot" onclick="currentSlide(1)"></span>
+			<span class="dot" onclick="currentSlide(2)"></span>
+			<span class="dot" onclick="currentSlide(3)"></span>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script>
+		// js
+		$('.tile')
+			.on('mouseover', function() {
+				$(this).children('.photo').css({
+					'transform': 'scale(' + $(this).attr('data-scale') + ')'
+				});
+			})
+			.on('mouseout', function() {
+				$(this).children('.photo').css({
+					'transform': 'scale(1)'
+				});
+			})
+			.on('mousemove', function(e) {
+				$(this).children('.photo').css({
+					'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 + '%'
+				});
+			})
+			.each(function() {
+				$(this)
+					.append('<div class="photo"></div>')
+					.children('.photo').css({
+						'background-image': 'url(' + $(this).attr('data-image') + ')'
+					});
+			})
+
+	</script>
+	<script src="https://cdn.jsdelivr.net/scrollreveal.js/3.1.4/scrollreveal.min.js"></script>
 	<script>
 		window.sr = ScrollReveal();
 		sr.reveal('article, aside, #contact', {
 			reset: true,
 			delay: 300
 		});
-	</script>       
-        <script>
+
+	</script>
+	<script>
 		var slideIndex = 1;
 		showSlides(slideIndex);
 
@@ -297,6 +304,8 @@ $(this)
 			dots[slideIndex - 1].className += " active";
 
 		}
+
 	</script>
- </body>   
- </html>   
+</body>
+
+</html>
