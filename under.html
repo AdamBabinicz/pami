@@ -6,7 +6,7 @@
             background-color: black;
         }
 .tiles {
-display: flex;
+
 position: absolute;
 top: 0;
 left: 0;
@@ -34,14 +34,204 @@ background-position: center;
 background-size: cover;
 transition: transform .8s ease-out;
 }
+        /* Start Slider */
+
+		.tiles {
+			position: relative;
+            overflow-x: hidden;
+		}
+
+		.prev,
+		.next {
+			cursor: pointer;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			height: .7rem;
+			width: 0.7rem;
+			padding: 0.4rem .3rem 1.2rem;
+			color: #FFF;
+			font-weight: bold;
+			font-size: 1rem;
+			transition: 0.6s ease;
+			border-radius: 0 3px 3px 0;
+			background-color: rgba(255, 255, 255, 0.38);
+			text-shadow: 0 0 20px #000;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.83);
+		}
+
+		.next {
+			right: 0;
+			border-radius: 3px 0 0 3px;
+		}
+
+		.prev {
+			left: 0;
+		}
+
+		.prev:hover,
+		.next:hover {
+			background-color: rgba(79, 91, 213, 0.35);
+			color: rgba(250, 6, 6, 0.9);
+			transform: scale(1.5);
+			top: 46%;
+			box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+			text-shadow: 0 0 1px #FFF;
+		}
+
+		tile {
+			display: block;
+			width: 100%;
+			max-width: 100%;
+            height: 100px;
+		}
+
+		.mySlides {
+			position: relative;
+		}
+
+		.numbertext {
+			position: absolute;
+			color: #FFF;
+			text-shadow: 0 0 20px #000;
+			padding: .1rem .4rem;
+
+		}
+
+		/* End Slider */
+
+		@keyframes fot {
+			0% {
+				transform: rotateX(6deg) scale(1.0);
+				transition: all 9s ease-out;
+			}
+			50% {
+				transform: scale(1.2) rotate3d(0, 1, 0, 5deg) translateY(5.5%) translateX(8.2%);
+				overflow: hidden;
+
+			}
+			100% {
+				transform: rotateX(6deg) scale(1.0);
+				transition: all 10s ease-in-out;
+			}
+		}
+
+		@keyframes carousel {
+			0% {
+				left: 0;
+
+				opacity: .79;
+
+				transition: all 2s ease-in-out;
+			}
+			11% {
+				left: 0;
+				opacity: .89;
+
+				transition: all 1s ease-out;
+			}
+			12.5% {
+				left: -100%;
+				opacity: .7;
+
+				transition: all 2s ease-out;
+			}
+			23.5% {
+				left: -100%;
+				opacity: .85;
+
+				transition: all 1s ease-out;
+			}
+			25% {
+				left: -200%;
+				opacity: .95;
+
+				transition: all 2s ease-out;
+			}
+			36% {
+				left: -200%;
+				opacity: .7;
+				transition: all 1.5s ease-out;
+
+			}
+			37.5% {
+				left: -300%;
+				opacity: .85;
+				transition: all 1s ease-out;
+			}
+			48.5% {
+				left: -300%;
+				opacity: .7;
+				transition: all 1.6s ease-out;
+			}
+			50% {
+				left: -400%;
+				opacity: .95;
+				transition: all 1.4s ease-out;
+			}
+			61% {
+				left: -400%;
+				opacity: .86;
+				transition: all 1.3s ease-out;
+			}
+			62.5% {
+				left: -300%;
+				opacity: .76;
+				transition: all 1s ease-out;
+			}
+			73.5% {
+				left: -300%;
+				opacity: .9;
+				transition: all 1.2s ease-out;
+			}
+			75% {
+				left: -200%;
+				opacity: .85;
+				transition: all 1.3s ease-out;
+			}
+			86% {
+				left: -200%;
+				opacity: .79;
+				transition: all 1.4s ease-out;
+			}
+			87.5% {
+				left: -100%;
+				opacity: .7;
+				transition: all 1.5s ease-out;
+			}
+			98.5% {
+				left: -100%;
+				opacity: .87;
+				transition: all 1.8s ease-out;
+			}
+			100% {
+				left: 0;
+				opacity: .8;
+				transition: all 1.9s ease-out;
+
+			}
+		}
+
         </style>
     </head>
     <body>
     <div class="tiles">
-<div class="tile" data-scale="2.4" data-image="DSC08580.JPG"></div>
- <div class="tile" data-scale="2.4" data-image="logo.jpg"></div>       
-</div>
         
+<div class="tile mySlides" data-scale="2.4" data-image="DSC08580.JPG"></div>
+ <div class="tile mySlides" data-scale="2.4" data-image="DSC00153.JPG"></div>
+  <div class="tile mySlides" data-scale="2.4" data-image="DSC08420.JPG"></div>
+ <div class="tile mySlides" data-scale="2.4" data-image="DSC08583.JPG"></div>
+  <div class="tile mySlides" data-scale="2.4" data-image="zdjecie218.JPG"></div>
+ <div class="tile mySlides" data-scale="2.4" data-image="zdjecie0249.JPG"></div>      
+        <a class="prev" onclick="plusSlides(-1)">&#171;</a>
+		<a class="next" onclick="plusSlides(1)">&#187;</a>
+        <div>
+				<span class="dot" onclick="currentSlide(1)"></span>
+				<span class="dot" onclick="currentSlide(2)"></span>
+				<span class="dot" onclick="currentSlide(3)"></span>
+			</div>
+</div>
+    
  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>       
         <script>
         // js
@@ -62,5 +252,51 @@ $(this)
 })
 
         </script>
+ <script src="https://cdn.jsdelivr.net/scrollreveal.js/3.1.4/scrollreveal.min.js"></script>
+	<script>
+		window.sr = ScrollReveal();
+		sr.reveal('article, aside, #contact', {
+			reset: true,
+			delay: 300
+		});
+	</script>       
+        <script>
+		var slideIndex = 1;
+		showSlides(slideIndex);
+
+		function currentSlide(n) {
+			showSlides(slideIndex = n);
+		}
+
+		function plusSlides(n) {
+			showSlides(slideIndex += n);
+		}
+
+		function showSlides(n) {
+			var i;
+			var slides = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("dot");
+
+			if (n > slides.length) {
+				slideIndex = 1;
+			}
+
+			if (n < 1) {
+				slideIndex = slides.length;
+			}
+
+
+			for (i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none";
+			}
+
+			for (i = 0; i < dots.length; i++) {
+				dots[i].className = dots[i].className.replace("active", "");
+			}
+			slides[slideIndex - 1].style.display = "block";
+			dots[slideIndex - 1].className += " active";
+
+		}
+	</script>
  </body>   
  </html>   
